@@ -1,1 +1,3 @@
 /CodeBase/.vs
+/CodeBase/*/bin
+/CodeBase/*/obj
