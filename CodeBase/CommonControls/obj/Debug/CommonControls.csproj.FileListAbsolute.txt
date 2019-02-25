@@ -1,8 +1,0 @@
-E:\Personal\代码库\CodeBase\CommonControls\bin\Debug\CommonControls.exe
-E:\Personal\代码库\CodeBase\CommonControls\bin\Debug\CommonControls.pdb
-E:\Personal\代码库\CodeBase\CommonControls\obj\Debug\CommonControls.csprojAssemblyReference.cache
-E:\Personal\代码库\CodeBase\CommonControls\obj\Debug\CommonControls.Properties.Resources.resources
-E:\Personal\代码库\CodeBase\CommonControls\obj\Debug\CommonControls.csproj.GenerateResource.cache
-E:\Personal\代码库\CodeBase\CommonControls\obj\Debug\CommonControls.csproj.CoreCompileInputs.cache
-E:\Personal\代码库\CodeBase\CommonControls\obj\Debug\CommonControls.exe
-E:\Personal\代码库\CodeBase\CommonControls\obj\Debug\CommonControls.pdb
