@@ -43,7 +43,7 @@ namespace CommonControls
                     break;
                 case AlignType.TopRight:
                     childCtrl2.Location = new Point(parentCtrl1.Size.Width - childCtrl2.Size.Width, 0);
-                    parentCtrl1.Resize += (a, b) => new Point(parentCtrl1.Size.Width - childCtrl2.Size.Width, 0);
+                    parentCtrl1.Resize += (a, b) => childCtrl2.Location = new Point(parentCtrl1.Size.Width - childCtrl2.Size.Width, 0);
                     break;
                 case AlignType.MiddleLeft:
                     childCtrl2.Location = new Point(0, parentCtrl1.Size.Height / 2 - childCtrl2.Size.Height / 2);
@@ -55,15 +55,15 @@ namespace CommonControls
                     break;
                 case AlignType.BottomLeft:
                     childCtrl2.Location = new Point(0, parentCtrl1.Size.Height - childCtrl2.Size.Height);
-                    parentCtrl1.Resize += (a, b) => new Point(0, parentCtrl1.Size.Height - childCtrl2.Size.Height);
+                    parentCtrl1.Resize += (a, b) => childCtrl2.Location = new Point(0, parentCtrl1.Size.Height - childCtrl2.Size.Height);
                     break;
                 case AlignType.BottomCentre:
                     childCtrl2.Location = new Point(parentCtrl1.Size.Width / 2 - childCtrl2.Size.Width / 2, parentCtrl1.Size.Height - childCtrl2.Size.Height);
-                    parentCtrl1.Resize += (a, b) => new Point(parentCtrl1.Size.Width / 2 - childCtrl2.Size.Width / 2, parentCtrl1.Size.Height - childCtrl2.Size.Height);
+                    parentCtrl1.Resize += (a, b) => childCtrl2.Location = new Point(parentCtrl1.Size.Width / 2 - childCtrl2.Size.Width / 2, parentCtrl1.Size.Height - childCtrl2.Size.Height);
                     break;
                 case AlignType.BottomRight:
                     childCtrl2.Location = new Point(parentCtrl1.Size.Width - childCtrl2.Size.Width, parentCtrl1.Size.Height - childCtrl2.Size.Height);
-                    parentCtrl1.Resize += (a, b) => new Point(parentCtrl1.Size.Width - childCtrl2.Size.Width, parentCtrl1.Size.Height - childCtrl2.Size.Height);
+                    parentCtrl1.Resize += (a, b) => childCtrl2.Location = new Point(parentCtrl1.Size.Width - childCtrl2.Size.Width, parentCtrl1.Size.Height - childCtrl2.Size.Height);
                     break;
             }
         }
