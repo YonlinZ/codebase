@@ -19,10 +19,10 @@ namespace CommonControls
         {
             if (string.IsNullOrWhiteSpace(lastText) && textBox1.Text != defaultText)//突出显示
             {
-                textBox1.Text = textBox1.Text.Replace(defaultText, string.Empty);
                 textBox1.ForeColor = Color.Black;
-                textBox1.SelectionStart = textBox1.TextLength;
                 lastText = defaultText;
+                textBox1.Text = textBox1.Text.Replace(defaultText, string.Empty);
+                textBox1.SelectionStart = textBox1.TextLength;
             }
 
             if (lastText == defaultText && string.IsNullOrWhiteSpace(textBox1.Text))//恢复默认
@@ -32,10 +32,23 @@ namespace CommonControls
                 lastText = string.Empty;
             }
         }
+        private int flag = 0;
 
         private void textBox1_Click(object sender, EventArgs e)
         {
-            textBox1.SelectAll();
+            if (textBox1.Text == defaultText)
+            {
+                textBox1.SelectAll();
+            }
+            else if (flag++ % 2 == 0)
+            {
+                textBox1.SelectAll();
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

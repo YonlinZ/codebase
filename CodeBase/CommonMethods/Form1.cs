@@ -1,8 +1,10 @@
 ﻿using CommonControls;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Management;
 
 namespace CommonMethods
 {
@@ -19,11 +21,8 @@ namespace CommonMethods
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            GetMacAddress();
         }
-
-
-
-
         private void button1_Click(object sender, EventArgs e)
         {
             ControlAlign.SetControlAlign(panel, panel1, ControlAlign.AlignType.TopLeft);
@@ -79,23 +78,44 @@ namespace CommonMethods
                     Point vPoint = new Point((int)m.LParam & 0xFFFF, (int)m.LParam >> 16 & 0xFFFF);
                     vPoint = PointToClient(vPoint);
                     if (vPoint.X <= 5)
+                    {
                         if (vPoint.Y <= 5)
+                        {
                             m.Result = (IntPtr)Guying_HTTOPLEFT;
+                        }
                         else if (vPoint.Y >= ClientSize.Height - 5)
+                        {
                             m.Result = (IntPtr)Guying_HTBOTTOMLEFT;
+                        }
                         else
+                        {
                             m.Result = (IntPtr)Guying_HTLEFT;
+                        }
+                    }
                     else if (vPoint.X >= ClientSize.Width - 5)
+                    {
                         if (vPoint.Y <= 5)
+                        {
                             m.Result = (IntPtr)Guying_HTTOPRIGHT;
+                        }
                         else if (vPoint.Y >= ClientSize.Height - 5)
+                        {
                             m.Result = (IntPtr)Guying_HTBOTTOMRIGHT;
+                        }
                         else
+                        {
                             m.Result = (IntPtr)Guying_HTRIGHT;
+                        }
+                    }
                     else if (vPoint.Y <= 5)
+                    {
                         m.Result = (IntPtr)Guying_HTTOP;
+                    }
                     else if (vPoint.Y >= ClientSize.Height - 5)
+                    {
                         m.Result = (IntPtr)Guying_HTBOTTOM;
+                    }
+
                     break;
                 case 0x0201://鼠标左键按下的消息
                     m.Msg = 0x00A1; //更改消息为非客户区按下鼠标
@@ -109,5 +129,39 @@ namespace CommonMethods
             }
         }
         #endregion
+
+
+        /// <summary>
+        /// 获取MAC地址
+        /// </summary>
+        /// <returns></returns>
+        private static string[] GetMacAddress()
+        {
+            var strMac = new List<string>();
+            try
+            {
+
+                ManagementClass mc = new ManagementClass("Win32_NetworkAdapterConfiguration");
+                ManagementObjectCollection moc = mc.GetInstances();
+                foreach (ManagementObject mo in moc)
+                {
+                    if ((bool)mo["IPEnabled"] == true)
+                    {
+                        strMac.Add(mo["MacAddress"].ToString());
+                    }
+                }
+                moc = null;
+                mc = null;
+
+                MessageBox.Show(string.Join(",", strMac.ToArray()));
+
+
+                return strMac.ToArray();
+            }
+            catch
+            {
+                return strMac.ToArray();
+            }
+        }
     }
 }
