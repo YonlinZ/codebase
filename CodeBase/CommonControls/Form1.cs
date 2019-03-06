@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using NLog;
 
 namespace CommonControls
 {
     public partial class Form1 : Form
     {
+        private static Logger logger = NLog.LogManager.GetCurrentClassLogger();
         private string defaultText = "默认文字";
         private string lastText = string.Empty;
         public Form1()
@@ -33,7 +35,11 @@ namespace CommonControls
             }
         }
         private int flag = 0;
-
+        /// <summary>
+        /// 全选 插入光标 切换
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBox1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == defaultText)
@@ -48,7 +54,8 @@ namespace CommonControls
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            logger.Info("控制台日志");
+            logger.Debug("Debug日志");
         }
     }
 }
