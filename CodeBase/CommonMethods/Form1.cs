@@ -21,8 +21,10 @@ namespace CommonMethods
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            GetMacAddress();
+            //GetMacAddress();
         }
+        #region  窗体布局
+
         private void button1_Click(object sender, EventArgs e)
         {
             ControlAlign.SetControlAlign(panel, panel1, ControlAlign.AlignType.TopLeft);
@@ -46,7 +48,13 @@ namespace CommonMethods
             ControlAlign.SetControlAlign(panel, panel3, ControlAlign.AlignType.TopRight + 6);
 
         }
+        #endregion 
 
+        /// <summary>
+        /// 窗体拖动功能
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void panel_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -129,6 +137,61 @@ namespace CommonMethods
             }
         }
         #endregion
+
+
+        /// <summary>
+        /// 按键自动输入至指定textBox1
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="keyData"></param>
+        /// <returns></returns>
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (textBox2.Focused)//当光标聚焦到该控件时，不自动输入到指定的 textBox1
+                return base.ProcessCmdKey(ref msg, keyData);
+            if (keyData == Keys.NumPad0 || keyData == Keys.NumPad1 || keyData == Keys.NumPad2 ||
+                keyData == Keys.NumPad3 || keyData == Keys.NumPad4 ||
+                keyData == Keys.NumPad5 || keyData == Keys.NumPad6 || keyData == Keys.NumPad7 ||
+                keyData == Keys.NumPad8 || keyData == Keys.NumPad9 ||
+                keyData == Keys.D0 || keyData == Keys.D1 || keyData == Keys.D2 || keyData == Keys.D3 ||
+                keyData == Keys.D4 ||
+                keyData == Keys.D5 || keyData == Keys.D6 || keyData == Keys.D7 || keyData == Keys.D8 ||
+                keyData == Keys.D9 ||
+                keyData == Keys.A || keyData == Keys.B ||
+                keyData == Keys.C || keyData == Keys.D || keyData == Keys.E || keyData == Keys.F || keyData == Keys.G ||
+                keyData == Keys.H || keyData == Keys.I ||
+                keyData == Keys.J || keyData == Keys.K || keyData == Keys.L || keyData == Keys.M || keyData == Keys.N ||
+                keyData == Keys.O || keyData == Keys.P ||
+                keyData == Keys.Q || keyData == Keys.R || keyData == Keys.S || keyData == Keys.T || keyData == Keys.U ||
+                keyData == Keys.V || keyData == Keys.W ||
+                keyData == Keys.X || keyData == Keys.Y || keyData == Keys.Z || keyData == Keys.Subtract ||
+                keyData == Keys.OemMinus)
+            {
+                textBox1.Text += KeyCodeToString(keyData);
+                textBox1.Focus();
+                textBox1.SelectionStart = textBox1.Text.Trim().Length;
+                return true;
+            }
+            if (keyData == Keys.Enter)
+            {
+                MessageBox.Show("Enter");
+                //TODO 
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private string KeyCodeToString(Keys KeyCode)
+        {
+            if (KeyCode >= Keys.D0 && KeyCode <= Keys.D9 || KeyCode >= Keys.NumPad0 && KeyCode <= Keys.NumPad9)
+                return KeyCode.ToString().Substring(KeyCode.ToString().Length - 1, 1);
+            if (KeyCode == Keys.Subtract || KeyCode == Keys.OemMinus)
+                return "-";
+            if (KeyCode >= Keys.A && KeyCode <= Keys.Z)
+                return KeyCode.ToString();
+            return "";
+        }
+
 
 
         /// <summary>
