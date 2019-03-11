@@ -213,12 +213,6 @@ namespace CommonMethods
                         strMac.Add(mo["MacAddress"].ToString());
                     }
                 }
-                moc = null;
-                mc = null;
-
-                MessageBox.Show(string.Join(",", strMac.ToArray()));
-
-
                 return strMac.ToArray();
             }
             catch
