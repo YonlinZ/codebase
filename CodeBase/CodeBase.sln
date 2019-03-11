@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonControls", "CommonCon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonMethods", "CommonMethods\CommonMethods.csproj", "{267C6D2A-2041-477A-AE04-668D32D8BB9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multithreading", "Multithreading\Multithreading.csproj", "{2E842722-45C2-4DE5-883B-871FA9A6B28B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{267C6D2A-2041-477A-AE04-668D32D8BB9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{267C6D2A-2041-477A-AE04-668D32D8BB9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{267C6D2A-2041-477A-AE04-668D32D8BB9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E842722-45C2-4DE5-883B-871FA9A6B28B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E842722-45C2-4DE5-883B-871FA9A6B28B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E842722-45C2-4DE5-883B-871FA9A6B28B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E842722-45C2-4DE5-883B-871FA9A6B28B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
