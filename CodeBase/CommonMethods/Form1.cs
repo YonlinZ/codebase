@@ -10,18 +10,24 @@ namespace CommonMethods
 {
     public partial class Form1 : Form
     {
-        [DllImport("user32.dll")]
+        [DllImport("user32.dll")]//窗体拖动
         private static extern bool ReleaseCapture();
-        [DllImport("user32.dll")]
+        [DllImport("user32.dll")]//窗体拖动
         private static extern bool SendMessage(IntPtr hwnd, int wMsg, int wParam, int lParam);
+
+        [DllImport("user32.dll", EntryPoint = "GetWindowLong", CharSet = CharSet.Auto)]// 点击任务栏最小化
+        public static extern int GetWindowLong(HandleRef hWnd, int nIndex);
+
+        [DllImport("user32.dll", EntryPoint = "SetWindowLong", CharSet = CharSet.Auto)]// 点击任务栏最小化
+        public static extern IntPtr SetWindowLong(HandleRef hWnd, int nIndex, int dwNewLong);
         public Form1()
         {
             InitializeComponent();
+            SetForm();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //GetMacAddress();
         }
         #region  窗体布局
 
@@ -138,6 +144,7 @@ namespace CommonMethods
         }
         #endregion
 
+        #region 按键自动输入至指定textBox1
 
         /// <summary>
         /// 按键自动输入至指定textBox1
@@ -192,8 +199,31 @@ namespace CommonMethods
             return "";
         }
 
+        #endregion
+        
 
+        #region // 点击任务栏最小化
 
+        public void SetForm()
+        {
+            int WS_SYSMENU = 0x00080000; // 系统菜单
+            int WS_MINIMIZEBOX = 0x20000; // 最大最小化按钮
+            int windowLong = (GetWindowLong(new HandleRef(this, this.Handle), -16));
+            SetWindowLong(new HandleRef(this, this.Handle), -16, windowLong | WS_SYSMENU | WS_MINIMIZEBOX);
+        }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int WS_MINIMIZEBOX = 0x00020000;  // Winuser.h中定义   
+                CreateParams cp = base.CreateParams;
+                cp.Style = cp.Style | WS_MINIMIZEBOX;   // 允许最小化操作   
+                return cp;
+            }
+        }
+
+        #endregion
+        
         /// <summary>
         /// 获取MAC地址
         /// </summary>
