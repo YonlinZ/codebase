@@ -103,7 +103,7 @@ namespace Multithreading
 
         class ThreadSample
         {
-            private readonly int _iterations;
+            public readonly int _iterations;
 
             public ThreadSample(int iterations)
             {

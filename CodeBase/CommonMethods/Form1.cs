@@ -11,9 +11,9 @@ namespace CommonMethods
     public partial class Form1 : Form
     {
         [DllImport("user32.dll")]//窗体拖动
-        private static extern bool ReleaseCapture();
+        public static extern bool ReleaseCapture();
         [DllImport("user32.dll")]//窗体拖动
-        private static extern bool SendMessage(IntPtr hwnd, int wMsg, int wParam, int lParam);
+        public static extern bool SendMessage(IntPtr hwnd, int wMsg, int wParam, int lParam);
 
         [DllImport("user32.dll", EntryPoint = "GetWindowLong", CharSet = CharSet.Auto)]// 点击任务栏最小化
         public static extern int GetWindowLong(HandleRef hWnd, int nIndex);
@@ -26,12 +26,12 @@ namespace CommonMethods
             SetForm();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public void Form1_Load(object sender, EventArgs e)
         {
         }
         #region  窗体布局
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             ControlAlign.SetControlAlign(panel, panel1, ControlAlign.AlignType.TopLeft);
             ControlAlign.SetControlAlign(panel, panel2, ControlAlign.AlignType.TopCentre);
@@ -39,7 +39,7 @@ namespace CommonMethods
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             ControlAlign.SetControlAlign(panel, panel1, ControlAlign.AlignType.TopLeft + 3);
             ControlAlign.SetControlAlign(panel, panel2, ControlAlign.AlignType.TopCentre + 3);
@@ -47,7 +47,7 @@ namespace CommonMethods
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
             ControlAlign.SetControlAlign(panel, panel1, ControlAlign.AlignType.TopLeft + 6);
             ControlAlign.SetControlAlign(panel, panel2, ControlAlign.AlignType.TopCentre + 6);
@@ -61,7 +61,7 @@ namespace CommonMethods
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void panel_MouseDown(object sender, MouseEventArgs e)
+        public void panel_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -74,14 +74,14 @@ namespace CommonMethods
         }
 
         # region 支持改变窗体大小，需要露出窗体
-        private const int Guying_HTLEFT = 10;
-        private const int Guying_HTRIGHT = 11;
-        private const int Guying_HTTOP = 12;
-        private const int Guying_HTTOPLEFT = 13;
-        private const int Guying_HTTOPRIGHT = 14;
-        private const int Guying_HTBOTTOM = 15;
-        private const int Guying_HTBOTTOMLEFT = 0x10;
-        private const int Guying_HTBOTTOMRIGHT = 17;
+        public const int Guying_HTLEFT = 10;
+        public const int Guying_HTRIGHT = 11;
+        public const int Guying_HTTOP = 12;
+        public const int Guying_HTTOPLEFT = 13;
+        public const int Guying_HTTOPRIGHT = 14;
+        public const int Guying_HTBOTTOM = 15;
+        public const int Guying_HTBOTTOMLEFT = 0x10;
+        public const int Guying_HTBOTTOMRIGHT = 17;
 
         protected override void WndProc(ref Message m)
         {
@@ -188,7 +188,7 @@ namespace CommonMethods
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private string KeyCodeToString(Keys KeyCode)
+        public string KeyCodeToString(Keys KeyCode)
         {
             if (KeyCode >= Keys.D0 && KeyCode <= Keys.D9 || KeyCode >= Keys.NumPad0 && KeyCode <= Keys.NumPad9)
                 return KeyCode.ToString().Substring(KeyCode.ToString().Length - 1, 1);
@@ -228,7 +228,7 @@ namespace CommonMethods
         /// 获取MAC地址
         /// </summary>
         /// <returns></returns>
-        private static string[] GetMacAddress()
+        public static string[] GetMacAddress()
         {
             var strMac = new List<string>();
             try

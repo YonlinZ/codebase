@@ -7,9 +7,9 @@ namespace CommonControls
 {
     public partial class Form1 : Form
     {
-        private static Logger logger = NLog.LogManager.GetCurrentClassLogger();
-        private string defaultText = "默认文字";
-        private string lastText = string.Empty;
+        public static Logger logger = NLog.LogManager.GetCurrentClassLogger();
+        public string defaultText = "默认文字";
+        public string lastText = string.Empty;
         public Form1()
         {
             InitializeComponent();
@@ -17,7 +17,7 @@ namespace CommonControls
             textBox1.ForeColor = SystemColors.ControlLight;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        public void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(lastText) && textBox1.Text != defaultText)//突出显示
             {
@@ -34,13 +34,13 @@ namespace CommonControls
                 lastText = string.Empty;
             }
         }
-        private int flag = 0;
+        public int flag = 0;
         /// <summary>
         /// 全选 插入光标 切换
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBox1_Click(object sender, EventArgs e)
+        public void textBox1_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == defaultText)
             {
@@ -52,7 +52,7 @@ namespace CommonControls
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public void Form1_Load(object sender, EventArgs e)
         {
             logger.Info("控制台日志");
             logger.Debug("Debug日志");

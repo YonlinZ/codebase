@@ -5,7 +5,7 @@
         /// <summary>
         /// 必需的设计器变量。
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        public System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// 清理所有正在使用的资源。
@@ -26,7 +26,7 @@
         /// 设计器支持所需的方法 - 不要修改
         /// 使用代码编辑器修改此方法的内容。
         /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
             this.组合控件 = new System.Windows.Forms.GroupBox();
             this.ucLabelAndTxt1 = new CommonControls.UcLabelAndTxt();
@@ -124,12 +124,12 @@
 
         #endregion
 
-        private UcLabelAndTxt ucLabelAndTxt1;
-        private UcButtonRadiusBorder UcButtonRadiusBorder1;
-        private System.Windows.Forms.GroupBox 组合控件;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        public UcLabelAndTxt ucLabelAndTxt1;
+        public UcButtonRadiusBorder UcButtonRadiusBorder1;
+        public System.Windows.Forms.GroupBox 组合控件;
+        public System.Windows.Forms.GroupBox groupBox1;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.Label label1;
     }
 }
 

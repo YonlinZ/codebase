@@ -12,7 +12,7 @@ namespace CommonControls
             InitializeComponent();
         }
 
-        private void ucLabelAndTxt_Load(object sender, EventArgs e)
+        public void ucLabelAndTxt_Load(object sender, EventArgs e)
         {
             ResetControlSize();
         }
@@ -62,7 +62,7 @@ namespace CommonControls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ucLabelAndTxt_FontChanged(object sender, EventArgs e)
+        public void ucLabelAndTxt_FontChanged(object sender, EventArgs e)
         {
             ResetControlSize();
         }
@@ -92,7 +92,7 @@ namespace CommonControls
         /// <summary>
         /// 调整控件大小
         /// </summary>
-        private void ResetControlSize()
+        public void ResetControlSize()
         {
             Size = new Size(panel1.Width + panel3.Width, txtValue.Height);
         }

@@ -13,8 +13,8 @@ namespace CommonControls
     public partial class UcButtonRadiusBorder : UserControl
     {
 
-        private Brush fontBrushColor = Brushes.White;
-        private int radius = 15; //默认圆角半径
+        public Brush fontBrushColor = Brushes.White;
+        public int radius = 15; //默认圆角半径
 
         public UcButtonRadiusBorder()
         {
@@ -38,7 +38,7 @@ namespace CommonControls
         [Description("背景色"), Category("自定义属性")]
         public Color UcBackColor { get; set; } = Color.FromArgb(19, 135, 254);
 
-        private Color txtColor = Color.White;
+        public Color txtColor = Color.White;
 
         [Description("文字颜色"), Category("自定义属性")]
         public Color UcTxtColor
@@ -56,7 +56,7 @@ namespace CommonControls
 
         [Browsable(true)]
         public event EventHandler ButtonClick;
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             ButtonClick?.Invoke(sender, e);
         }
@@ -78,7 +78,7 @@ namespace CommonControls
 
     
 
-         private void button1_Paint(object sender, PaintEventArgs e)
+         public void button1_Paint(object sender, PaintEventArgs e)
         {
             Button btn = sender as Button;
             int span = 2;
@@ -104,12 +104,12 @@ namespace CommonControls
             g.DrawString(btn.Text, btn.Font, fontBrushColor, 矩形, 格式);
         }
 
-        private void ButtonRadiusBorder_Load(object sender, EventArgs e)
+        public void ButtonRadiusBorder_Load(object sender, EventArgs e)
         {
             button1.Size = this.Size;
         }
 
-        private void UcButtonRadiusBorder_FontChanged(object sender, EventArgs e)
+        public void UcButtonRadiusBorder_FontChanged(object sender, EventArgs e)
         {
             button1.Font = Font;
         }
