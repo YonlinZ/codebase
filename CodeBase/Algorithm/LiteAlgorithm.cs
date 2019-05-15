@@ -5,7 +5,7 @@ namespace Algorithm
     public static class LiteAlgorithm
     {
         /// <summary>
-        /// 分解质因数
+        /// 分解质因数，略作优化
         /// </summary>
         /// <param name="x"></param>
         public static void F(ulong x)
@@ -26,7 +26,10 @@ namespace Algorithm
                 }
             }
         }
-
+        /// <summary>
+        /// 分解质因数
+        /// </summary>
+        /// <param name="x"></param>
         public static void F2(ulong x)
         {
             for (ulong i = 2; i <= x; i++)
@@ -41,18 +44,33 @@ namespace Algorithm
         }
 
         /// <summary>
-        /// 小青蛙跳台阶
+        /// 小青蛙跳台阶，递归算法
         /// </summary>
         /// <param name="n"></param>
         /// <returns></returns>
-        public static int F3(int n)
+        public static int FrogJump(int n)
         {
             if (n <= 1)
             {
-                return n;
+                return 1;
             }
 
-            return F3(n - 1) + F3(n - 2);
+            return FrogJump(n - 1) + FrogJump(n - 2);
+        }
+        /// <summary>
+        /// 小青蛙跳台阶，组合算法
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public static int FrogJump2(int n)
+        {
+            var result = 0; 
+            for (int i = 0; i <= n / 2; i++)
+            {
+                result += C(i, n - i);
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -74,6 +92,10 @@ namespace Algorithm
         /// <returns></returns>
         public static int A(int n, int total)
         {
+            if (n == 0)
+            {
+                return 1;
+            }
             int result = 1;
             int times = 0;
             do
