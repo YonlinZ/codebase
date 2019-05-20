@@ -200,10 +200,12 @@ namespace CommonMethods
         }
 
         #endregion
-        
+
 
         #region // 点击任务栏最小化
-
+        /// <summary>
+        /// 点击任务栏最小化
+        /// </summary>
         public void SetForm()
         {
             int WS_SYSMENU = 0x00080000; // 系统菜单
@@ -221,7 +223,6 @@ namespace CommonMethods
                 return cp;
             }
         }
-
         #endregion
         
         /// <summary>
