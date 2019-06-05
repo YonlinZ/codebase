@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multithreading", "Multithre
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithm", "Algorithm\Algorithm.csproj", "{9EEAF8C0-8D44-4BF7-A10A-9B1CE860DBD7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{130CE082-2499-478C-AD28-98C97A583969}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{9EEAF8C0-8D44-4BF7-A10A-9B1CE860DBD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EEAF8C0-8D44-4BF7-A10A-9B1CE860DBD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EEAF8C0-8D44-4BF7-A10A-9B1CE860DBD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{130CE082-2499-478C-AD28-98C97A583969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{130CE082-2499-478C-AD28-98C97A583969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{130CE082-2499-478C-AD28-98C97A583969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{130CE082-2499-478C-AD28-98C97A583969}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

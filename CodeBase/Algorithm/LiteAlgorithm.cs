@@ -176,13 +176,13 @@ namespace Algorithm
         /// </summary>
         /// <param name="n">底数，需要与返回类型一致，否则递归处会随着迭代溢出</param>
         /// <param name="power">指数</param>
-        /// <returns>n^power</returns>
+        /// <returns></returns>
         public static long Pow3(long n, int power)
         {
             long res = 1;
             while (power != 0)
             {
-                if (power % 2 == 1)//如果是奇数
+                if (power % 2 != 0)//如果是奇数
                 {
                     res *= n;
                 }
@@ -192,29 +192,53 @@ namespace Algorithm
 
             return res;
         }
+        /// <summary>
+        /// 快速幂
+        /// </summary>
+        /// <param name="n">底数，需要与返回类型一致，否则递归处会随着迭代溢出</param>
+        /// <param name="power">指数</param>
+        /// <returns></returns>
+        public static double Pow4(double x, int n)
+        {
+            bool isNegative = n < 0;
+            double res = 1d;
+            while (n != 0)
+            {
+                if (n % 2 != 0)//如果是奇数
+                {
+                    res *= x;
+                }
+                x *= x;
+                n /= 2;
+            }
+            return isNegative ? 1 / res : res;
+        }
         #endregion
 
         /// <summary>
         /// 幂模
         /// </summary>
-        /// <param name="n">底数</param>
-        /// <param name="power">指数</param>
-        /// <param name="mod">对mod求模</param>
+        /// <param name="n">底数（正整数）</param>
+        /// <param name="power">指数（正整数）</param>
+        /// <param name="mod">对mod求模（正整数）</param>
         /// <returns>模</returns>
-        public static long PowMod(long n, int power, int mod)
+        public static int PowMod(int n, long power, int mod)
         {
-            long res = 1;
+            int res = 1;
             while (power != 0)
             {
                 if (power % 2 == 1)//如果是奇数
                 {
                     res = (res * n) % mod;
                 }
-                n = (n * n) % mod;
+                n = (n % mod) * (n % mod) % mod;
                 power >>= 1;
             }
 
             return res;
         }
+
+        
+
     }
 }
