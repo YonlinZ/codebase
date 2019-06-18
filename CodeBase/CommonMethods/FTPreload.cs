@@ -9,6 +9,13 @@ namespace CommonMethods
 {
     public class FTPreload
     {
+        /// <summary>
+        /// 大文件卡死
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="serverUri"></param>
+        /// <param name="offset"></param>
+        /// <returns></returns>
         public static bool RestartDownloadFromServer(string fileName, Uri serverUri, long offset)
         {
             // The serverUri parameter should use the ftp:// scheme.
@@ -58,7 +65,15 @@ namespace CommonMethods
             Console.WriteLine("Download restart - status: {0}", response.StatusDescription);
             return true;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="serverUri"></param>
+        /// <param name="offset"></param>
+        /// <param name="user">FTP用户名</param>
+        /// <param name="password">FTP密码</param>
+        /// <returns></returns>
         public static bool RestartDownloadFromServer(string fileName, Uri serverUri, long offset, string user, string password)
         {
             // The serverUri parameter should use the ftp:// scheme.

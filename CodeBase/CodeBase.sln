@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithm", "Algorithm\Algo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{130CE082-2499-478C-AD28-98C97A583969}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuartzNet", "QuartzNet\QuartzNet.csproj", "{1A98A169-5288-436A-8769-C27869C287D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIleHelpers", "FIleHelpers\FIleHelpers.csproj", "{8C7C46DF-9E15-4D92-92DF-16CBD53829B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{130CE082-2499-478C-AD28-98C97A583969}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{130CE082-2499-478C-AD28-98C97A583969}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{130CE082-2499-478C-AD28-98C97A583969}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A98A169-5288-436A-8769-C27869C287D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A98A169-5288-436A-8769-C27869C287D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A98A169-5288-436A-8769-C27869C287D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A98A169-5288-436A-8769-C27869C287D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C7C46DF-9E15-4D92-92DF-16CBD53829B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C7C46DF-9E15-4D92-92DF-16CBD53829B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C7C46DF-9E15-4D92-92DF-16CBD53829B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C7C46DF-9E15-4D92-92DF-16CBD53829B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
