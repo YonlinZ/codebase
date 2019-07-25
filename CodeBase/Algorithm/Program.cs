@@ -57,7 +57,7 @@ namespace Algorithm
             //Console.WriteLine(LeetCode372SuperPow.SuperPow3(2, arr3));
             //Console.WriteLine(LeetCode372SuperPow.SuperPow3(2, arr4));
 
-            Console.WriteLine(LeetCode372SuperPow.SuperPow3(2, arr5));
+            //Console.WriteLine(LeetCode372SuperPow.SuperPow3(2, arr5));
 
 
 
@@ -84,7 +84,13 @@ namespace Algorithm
             //sw.Stop();
             //Console.WriteLine(sw.ElapsedTicks);
 
+            int[] input = {};
+            SortAlgorithm.QuickSort(input, 0, input.Length-1);
 
+            foreach (var i in input)
+            {
+                Console.WriteLine(i);
+            }
 
             Console.ReadKey();
         }

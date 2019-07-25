@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuartzNet", "QuartzNet\Quar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIleHelpers", "FIleHelpers\FIleHelpers.csproj", "{8C7C46DF-9E15-4D92-92DF-16CBD53829B3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{59A601B3-808D-48E1-8894-5F951377D03E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgorithmTests1", "AlgorithmTests1\AlgorithmTests1.csproj", "{5ACFDB3C-DA1C-43DB-B0F5-BEC463AE11E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{8C7C46DF-9E15-4D92-92DF-16CBD53829B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C7C46DF-9E15-4D92-92DF-16CBD53829B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C7C46DF-9E15-4D92-92DF-16CBD53829B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59A601B3-808D-48E1-8894-5F951377D03E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59A601B3-808D-48E1-8894-5F951377D03E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59A601B3-808D-48E1-8894-5F951377D03E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59A601B3-808D-48E1-8894-5F951377D03E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ACFDB3C-DA1C-43DB-B0F5-BEC463AE11E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ACFDB3C-DA1C-43DB-B0F5-BEC463AE11E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ACFDB3C-DA1C-43DB-B0F5-BEC463AE11E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ACFDB3C-DA1C-43DB-B0F5-BEC463AE11E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

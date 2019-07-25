@@ -238,7 +238,45 @@ namespace Algorithm
             return res;
         }
 
-        
+        public static bool F(string input, string rule)
+        {
+            var left = -1;//左指针
+            var right = -1;//右指针
+            var isMatch = true;
+            var cusOperator = '/';//初始化操作符
+            var formatICD = rule + " ";//用“ ”作为结束标志
+            for (int i = 0; i < formatICD.Length; i++)
+            {
+                right = i;
+                if (formatICD[right] == '/' || formatICD[right] == '-' || formatICD[right] == ' ')
+                {
+                    var keyword = formatICD.Substring(left + 1, right - left - 1);
+                    switch (cusOperator)
+                    {
+                        case '/':
+                            if (!input.Contains(keyword))
+                            {
+                                isMatch = false;
+                                i = formatICD.Length;
+                            }
+                            cusOperator = formatICD[right];
+                            break;
+                        case '-':
+                            if (input.Contains(keyword))
+                            {
+                                isMatch = false;
+                                i = formatICD.Length;
+                            }
+                            cusOperator = formatICD[right];
+                            break;
+                        default:
+                            break;
+                    }
+                    left = right;
+                }
+            }
+            return isMatch;
 
+        }
     }
 }
