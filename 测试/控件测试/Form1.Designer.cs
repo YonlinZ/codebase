@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance11 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance12 = new Infragistics.Win.Appearance();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,6 +40,13 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.ultraFormattedLinkLabel1 = new Infragistics.Win.FormattedLinkLabel.UltraFormattedLinkLabel();
             this.ultraLabel1 = new Infragistics.Win.Misc.UltraLabel();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.print1 = new System.Windows.Forms.Button();
+            this.print2 = new System.Windows.Forms.Button();
+            this.print3 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +60,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(45, 234);
+            this.button1.Location = new System.Drawing.Point(509, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(157, 120);
             this.button1.TabIndex = 0;
@@ -63,7 +71,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(239, 188);
+            this.label2.Location = new System.Drawing.Point(672, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 1;
@@ -75,7 +83,7 @@
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.splitter1);
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Location = new System.Drawing.Point(323, 188);
+            this.panel2.Location = new System.Drawing.Point(29, 154);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(399, 166);
             this.panel2.TabIndex = 2;
@@ -108,8 +116,8 @@
             // 
             // ultraFormattedLinkLabel1
             // 
-            appearance1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ultraFormattedLinkLabel1.HotTrackLinkAppearance = appearance1;
+            appearance11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ultraFormattedLinkLabel1.HotTrackLinkAppearance = appearance11;
             this.ultraFormattedLinkLabel1.Location = new System.Drawing.Point(347, 12);
             this.ultraFormattedLinkLabel1.Name = "ultraFormattedLinkLabel1";
             this.ultraFormattedLinkLabel1.Size = new System.Drawing.Size(130, 23);
@@ -120,19 +128,70 @@
             // ultraLabel1
             // 
             this.ultraLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            appearance2.BackColor = System.Drawing.Color.Blue;
-            this.ultraLabel1.HotTrackAppearance = appearance2;
+            appearance12.BackColor = System.Drawing.Color.Blue;
+            this.ultraLabel1.HotTrackAppearance = appearance12;
             this.ultraLabel1.Location = new System.Drawing.Point(347, 41);
             this.ultraLabel1.Name = "ultraLabel1";
             this.ultraLabel1.Size = new System.Drawing.Size(100, 23);
             this.ultraLabel1.TabIndex = 4;
             this.ultraLabel1.Text = "ultraLabel1";
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // print1
+            // 
+            this.print1.Location = new System.Drawing.Point(39, 359);
+            this.print1.Name = "print1";
+            this.print1.Size = new System.Drawing.Size(75, 23);
+            this.print1.TabIndex = 5;
+            this.print1.Text = "打印";
+            this.print1.UseVisualStyleBackColor = true;
+            this.print1.Click += new System.EventHandler(this.print1_Click);
+            // 
+            // print2
+            // 
+            this.print2.Location = new System.Drawing.Point(131, 359);
+            this.print2.Name = "print2";
+            this.print2.Size = new System.Drawing.Size(75, 23);
+            this.print2.TabIndex = 5;
+            this.print2.Text = "打印预览";
+            this.print2.UseVisualStyleBackColor = true;
+            this.print2.Click += new System.EventHandler(this.print2_Click);
+            // 
+            // print3
+            // 
+            this.print3.Location = new System.Drawing.Point(227, 359);
+            this.print3.Name = "print3";
+            this.print3.Size = new System.Drawing.Size(75, 23);
+            this.print3.TabIndex = 5;
+            this.print3.Text = "打印设置";
+            this.print3.UseVisualStyleBackColor = true;
+            this.print3.Click += new System.EventHandler(this.print3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.print3);
+            this.Controls.Add(this.print2);
+            this.Controls.Add(this.print1);
             this.Controls.Add(this.ultraLabel1);
             this.Controls.Add(this.ultraFormattedLinkLabel1);
             this.Controls.Add(this.button1);
@@ -159,6 +218,13 @@
         private System.Windows.Forms.Splitter splitter1;
         private Infragistics.Win.FormattedLinkLabel.UltraFormattedLinkLabel ultraFormattedLinkLabel1;
         private Infragistics.Win.Misc.UltraLabel ultraLabel1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
+        private System.Windows.Forms.Button print1;
+        private System.Windows.Forms.Button print2;
+        private System.Windows.Forms.Button print3;
     }
 }
 

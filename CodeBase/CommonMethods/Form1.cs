@@ -1,6 +1,7 @@
 ﻿using CommonControls;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -250,6 +251,18 @@ namespace CommonMethods
             {
                 return strMac.ToArray();
             }
+        }
+
+        /// <summary>
+        /// 重启
+        /// </summary>
+        public static void Restart()
+        {
+            //开启新的实例
+            Process.Start(Application.ExecutablePath);
+
+            //关闭当前实例
+            Process.GetCurrentProcess().Kill();
         }
     }
 }
