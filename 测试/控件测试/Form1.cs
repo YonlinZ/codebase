@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Infragistics.Win;
 using Infragistics.Win.FormattedLinkLabel;
@@ -29,6 +26,28 @@ namespace 控件测试
             label2.Text = $"button {button1.Visible}";
             SetLinkApp();
             ultraLabel1.UseHotTracking = DefaultableBoolean.True;
+            Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
+        }
+
+        private void AddForm()
+        {
+            Task.Factory.StartNew(() =>
+            {
+                Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
+                Thread.Sleep(2000);
+                var frm = new Form
+                {
+                    BackColor = Color.AntiqueWhite,
+                    TopLevel = false
+                };
+                BeginInvoke((Action)(() =>
+                {
+                    Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
+                    panel1.Controls.Add(frm);
+                    frm.Show();
+                    Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
+                }));
+            });
         }
 
         private void button1_Paint(object sender, PaintEventArgs e)
@@ -36,7 +55,7 @@ namespace 控件测试
             GraphicsPath path = new GraphicsPath();
             path.AddLines(new Point[] { new Point(50, 2), new Point(65, 18), new Point(50, 34), new Point(50, 27), new Point(30, 27), new Point(30, 10), new Point(50, 10), new Point(50, 2), });
             this.button1.Region = new Region(path);
-         
+
         }
 
         private void SetLinkApp()
@@ -83,7 +102,9 @@ namespace 控件测试
         private void print1_Click(object sender, EventArgs e)
         {
             if (this.printDialog1.ShowDialog() == DialogResult.OK)
+            {
                 this.printDocument1.Print();
+            }
         }
 
         private void print2_Click(object sender, EventArgs e)
@@ -117,6 +138,11 @@ namespace 控件测试
             //在离左边距20,右边距20的位置打印
 
             e.Graphics.DrawString($"haha{Environment.NewLine}xixi0000000000000000", font, bru, nLeft + 20, nTop + 20);//如果要打印datagridView在这里遍历便可 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AddForm();
         }
     }
 }

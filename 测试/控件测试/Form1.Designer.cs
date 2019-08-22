@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Infragistics.Win.Appearance appearance11 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance12 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -47,6 +47,7 @@
             this.print1 = new System.Windows.Forms.Button();
             this.print2 = new System.Windows.Forms.Button();
             this.print3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,8 +117,8 @@
             // 
             // ultraFormattedLinkLabel1
             // 
-            appearance11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ultraFormattedLinkLabel1.HotTrackLinkAppearance = appearance11;
+            appearance3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ultraFormattedLinkLabel1.HotTrackLinkAppearance = appearance3;
             this.ultraFormattedLinkLabel1.Location = new System.Drawing.Point(347, 12);
             this.ultraFormattedLinkLabel1.Name = "ultraFormattedLinkLabel1";
             this.ultraFormattedLinkLabel1.Size = new System.Drawing.Size(130, 23);
@@ -128,8 +129,8 @@
             // ultraLabel1
             // 
             this.ultraLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            appearance12.BackColor = System.Drawing.Color.Blue;
-            this.ultraLabel1.HotTrackAppearance = appearance12;
+            appearance4.BackColor = System.Drawing.Color.Blue;
+            this.ultraLabel1.HotTrackAppearance = appearance4;
             this.ultraLabel1.Location = new System.Drawing.Point(347, 41);
             this.ultraLabel1.Name = "ultraLabel1";
             this.ultraLabel1.Size = new System.Drawing.Size(100, 23);
@@ -184,11 +185,22 @@
             this.print3.UseVisualStyleBackColor = true;
             this.print3.Click += new System.EventHandler(this.print3_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(347, 70);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "show";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.print3);
             this.Controls.Add(this.print2);
             this.Controls.Add(this.print1);
@@ -225,6 +237,7 @@
         private System.Windows.Forms.Button print1;
         private System.Windows.Forms.Button print2;
         private System.Windows.Forms.Button print3;
+        private System.Windows.Forms.Button button2;
     }
 }
 

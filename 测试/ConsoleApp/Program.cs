@@ -7,7 +7,10 @@ namespace ConsoleApp
         private static void Main(string[] args)
         {
 
+            Foo foo = (IFoo)null;
+            foo.Name = "lindexi";
 
+            Console.ReadKey();
         }
     }
 
@@ -84,6 +87,26 @@ namespace ConsoleApp
         }
         public override QuestionType Type { get; }
     }
+
+    //interface IFoo
+    //{
+
+    //}
+    internal class IFoo
+    {
+
+    }
+
+    internal class Foo
+    {
+        public string Name { get; set; }
+
+        public static implicit operator Foo(IFoo foo)//IFoo 不能是接口
+        {
+            return new Foo();
+        }
+    }
+
 
 
 
