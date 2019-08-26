@@ -30,7 +30,7 @@ namespace 控件测试
                 new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
 
             // Runs the application.
-            Application.Run(new ErrorHandlerForm());
+            //Application.Run(new ErrorHandlerForm());
 
 
             Application.Run(new Form1());

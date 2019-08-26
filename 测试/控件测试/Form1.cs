@@ -29,16 +29,18 @@ namespace 控件测试
             Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
         }
 
+
+        ErrorHandlerForm frm = null;
         private void AddForm()
         {
             Task.Factory.StartNew(() =>
             {
                 Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
-                Thread.Sleep(2000);
-                var frm = new Form
+                Thread.Sleep(3);
+                frm = new ErrorHandlerForm
                 {
                     BackColor = Color.AntiqueWhite,
-                    TopLevel = false
+                    TopLevel = false,
                 };
                 BeginInvoke((Action)(() =>
                 {
@@ -143,6 +145,17 @@ namespace 控件测试
         private void button2_Click(object sender, EventArgs e)
         {
             AddForm();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            frm.Dispose();
+            frm.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            frm.F();
         }
     }
 }

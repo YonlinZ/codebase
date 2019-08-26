@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -48,6 +48,8 @@
             this.print2 = new System.Windows.Forms.Button();
             this.print3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,8 +119,8 @@
             // 
             // ultraFormattedLinkLabel1
             // 
-            appearance3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ultraFormattedLinkLabel1.HotTrackLinkAppearance = appearance3;
+            appearance1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ultraFormattedLinkLabel1.HotTrackLinkAppearance = appearance1;
             this.ultraFormattedLinkLabel1.Location = new System.Drawing.Point(347, 12);
             this.ultraFormattedLinkLabel1.Name = "ultraFormattedLinkLabel1";
             this.ultraFormattedLinkLabel1.Size = new System.Drawing.Size(130, 23);
@@ -129,8 +131,8 @@
             // ultraLabel1
             // 
             this.ultraLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            appearance4.BackColor = System.Drawing.Color.Blue;
-            this.ultraLabel1.HotTrackAppearance = appearance4;
+            appearance2.BackColor = System.Drawing.Color.Blue;
+            this.ultraLabel1.HotTrackAppearance = appearance2;
             this.ultraLabel1.Location = new System.Drawing.Point(347, 41);
             this.ultraLabel1.Name = "ultraLabel1";
             this.ultraLabel1.Size = new System.Drawing.Size(100, 23);
@@ -187,7 +189,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(347, 70);
+            this.button2.Location = new System.Drawing.Point(347, 61);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 5;
@@ -195,11 +197,33 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(347, 90);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "KILL";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(347, 119);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "OPRATION";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.print3);
             this.Controls.Add(this.print2);
@@ -238,6 +262,8 @@
         private System.Windows.Forms.Button print2;
         private System.Windows.Forms.Button print3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
 

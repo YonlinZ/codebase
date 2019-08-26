@@ -303,7 +303,4 @@
   <metadata name="pageSetupDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>462, 17</value>
   </metadata>
-  <data name="Form1_Form1_Load_button__0_" xml:space="preserve">
-    <value>button {0}</value>
-  </data>
 </root>

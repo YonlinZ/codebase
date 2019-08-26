@@ -49,5 +49,11 @@ namespace 控件测试
                 throw;
             }
         }
+
+        public void F()
+        {
+            MessageBox.Show(button1.Text);
+        }
+
     }
 }
