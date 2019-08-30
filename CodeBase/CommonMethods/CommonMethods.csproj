@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControlAlign.cs" />
+    <Compile Include="DataRowToEntity.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
