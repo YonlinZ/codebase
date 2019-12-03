@@ -51,6 +51,21 @@ namespace FIleHelpers
                 }
             }
 
+
+            {// 按行读文件
+                var list = new List<string>();
+                string line;
+                System.IO.StreamReader file = new System.IO.StreamReader(@"E:\Personal\代码库\CodeBase\FIleHelpers\bin\Debug\测试药品id.txt");
+                while ((line = file.ReadLine()) != null)
+                {
+                    list.Add(line);
+                }
+                var joinstring = string.Join(",", list.ToArray());
+                Console.WriteLine(joinstring);
+            }
+
+
+
             Console.ReadKey();
         }
     }
@@ -58,13 +73,14 @@ namespace FIleHelpers
     [DelimitedRecord("|")]
     public class Orders
     {
+        [FieldOrder(1)]
         public int OrderID { get; set; }
-
+        [FieldOrder(2)]
         public string CustomerID { get; set; }
-
+        [FieldOrder(3)]
         [FieldConverter(ConverterKind.Date, "ddMMyyyy")]
         public DateTime OrderDate;
-
+        [FieldOrder(4)]
         [FieldConverter(ConverterKind.Decimal, ".")] // The decimal separator is .
         public decimal Freight;
     }
