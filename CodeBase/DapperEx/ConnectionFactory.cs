@@ -1,0 +1,76 @@
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace DapperEx
+{
+    public class ConnectionFactory
+    {
+        /// <summary>
+        /// 获取数据库连接
+        /// </summary>
+        /// <param name="type">数据库类型</param>
+        /// <param name="connectionString">连接字符串</param>
+        /// <returns></returns>
+        public static IDbConnection GetConnection(DataBaseType type, string connectionString)
+        {
+            try
+            {
+                switch (type)
+                {
+                    case DataBaseType.MSSQL:
+                        return new SqlConnection(connectionString);
+                    case DataBaseType.MYSQL:
+                        return new MySqlConnection(connectionString);
+                    case DataBaseType.ORACLE:
+                        throw new NotImplementedException(type.ToString());
+                    default:
+                        throw new NotImplementedException(type.ToString());
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message, e);
+            }
+        }
+        /// <summary>
+        /// 获取数据库连接
+        /// </summary>
+        /// <param name="dataBaseName">数据库名,配置文件中的 connectionStrings 节点下的 name 值</param>
+        /// <returns></returns>
+        public static IDbConnection GetConnection(string dataBaseName)
+        {
+            try
+            {
+                DataBaseType type = DataBaseType.OTHER;
+                var providerName = System.Configuration.ConfigurationManager.ConnectionStrings[dataBaseName]?.ProviderName;
+                var connectionString = System.Configuration.ConfigurationManager.ConnectionStrings[dataBaseName]?.ConnectionString;
+                if (string.IsNullOrWhiteSpace(providerName))
+                {
+                    throw new Exception($"连接字符串中 ProviderName 无效");
+                }
+
+                switch (providerName.ToUpper())
+                {
+                    case "SYSTEM.DATA.SQLCLIENT":
+                        type = DataBaseType.MSSQL;
+                        break;
+                    case "MYSQL.DATA.MYSQLCLIENT":
+                        type = DataBaseType.MYSQL;
+                        break;
+                    case "SYSTEM.DATA.ORACLECLIENT":
+                        type = DataBaseType.ORACLE;
+                        break;
+                    default:
+                        break;
+                }
+                return GetConnection(type, connectionString);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message, e);
+            }
+        }
+    }
+}
