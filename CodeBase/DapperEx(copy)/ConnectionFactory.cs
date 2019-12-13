@@ -7,7 +7,7 @@ namespace DapperEx
 {
     public class ConnectionFactory
     {
-        public static string DefaulDB { get; set; } = "DefaulDB";
+        public static string DefaulDB = "MySql";
         /// <summary>
         /// 获取数据库连接
         /// </summary>

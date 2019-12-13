@@ -8,6 +8,7 @@
         /// <summary>
         /// rxId
         /// </summary>
+        [DapperEx.CustomAttribute.CustomAttributePrimaryKey]
         public virtual string RX_ID
         {
             get; set;
