@@ -7,8 +7,26 @@ namespace ConsoleApp
         private static void Main(string[] args)
         {
 
-            Foo foo = (IFoo)null;
-            foo.Name = "lindexi";
+            //Foo foo = (IFoo)null;
+            //foo.Name = "lindexi";
+            //Console.WriteLine("X={0},Y={1}", AA.X, BB.Y);
+            //new C();
+
+            var i = new MyIndex("first", "second");
+            Console.WriteLine(i["1"]);
+            Console.WriteLine(i["2"]);
+            try
+            {
+            Console.WriteLine(i["3"]);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+
+
 
             Console.ReadKey();
         }
@@ -17,7 +35,7 @@ namespace ConsoleApp
     internal class A
     {
         private int i1 = 1;
-        private int i2 = 2;
+        protected int i2 = 2;
 
         public A()
         {
@@ -28,7 +46,7 @@ namespace ConsoleApp
     internal class B : A
     {
         private int i3 = 3;
-        private int i4 = 4;
+        protected int i4 = 4;
 
         public B()
         {
@@ -39,11 +57,12 @@ namespace ConsoleApp
     internal class C : B
     {
         private int i5 = 5;
-        private int i6 = 6;
+        protected int i6 = 6;
 
         public C()
         {
             Console.WriteLine($"{GetType().Name} CONSTRUCTOR C");
+            Console.WriteLine($"i2:{i2}, i4:{i4}, i5:{i5}, i6: {i6}");
         }
     }
 
@@ -107,8 +126,50 @@ namespace ConsoleApp
         }
     }
 
+    class AA
+    {
+        public static int X = 2;
+        static AA()
+        {
+            X = BB.Y + 1;
+        }
+    }
+    class BB
+    {
+        public static int Y = AA.X + 1;
+        static BB() { }
+    }
+    /// <summary>
+    /// 索引器
+    /// </summary>
+    class MyIndex
+    {
+        string First;
+        string Second;
 
+        public MyIndex(string first, string second)
+        {
+            First = first;
+            Second = second;
+        }
 
+        public string this[string index]
+        {
+            get
+            {
+                switch(index)
+                {
+                    case "1":
+                        return First;
+                    case "2":
+                        return Second;
+                    default:
+                        throw new NotImplementedException();
+                }
+            }
+        }
+
+    }
 
 
 
