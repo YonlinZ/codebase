@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace ConsoleApp
 {
@@ -12,22 +14,29 @@ namespace ConsoleApp
             //Console.WriteLine("X={0},Y={1}", AA.X, BB.Y);
             //new C();
 
-            var i = new MyIndex("first", "second");
-            Console.WriteLine(i["1"]);
-            Console.WriteLine(i["2"]);
-            try
-            {
-            Console.WriteLine(i["3"]);
+            //var i = new MyIndex("first", "second");
+            //Console.WriteLine(i["1"]);
+            //Console.WriteLine(i["2"]);
+            //try
+            //{
+            //Console.WriteLine(i["3"]);
 
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //}
 
-
-
-
+            //var count1 = 0;
+            //var count2 = 0;
+            //foreach (var i in Feige.Fib(10))
+            //{
+            //    Console.WriteLine($"{++count1} 返回的结果是：{i}");
+            //}
+            //foreach (var i in Feige.Fib(20))
+            //{
+            //    Console.WriteLine($"{++count2} 返回的结果是：{i}");
+            //}
             Console.ReadKey();
         }
     }
@@ -126,7 +135,7 @@ namespace ConsoleApp
         }
     }
 
-    class AA
+    internal class AA
     {
         public static int X = 2;
         static AA()
@@ -134,18 +143,20 @@ namespace ConsoleApp
             X = BB.Y + 1;
         }
     }
-    class BB
+
+    internal class BB
     {
         public static int Y = AA.X + 1;
         static BB() { }
     }
+
     /// <summary>
     /// 索引器
     /// </summary>
-    class MyIndex
+    internal class MyIndex
     {
-        string First;
-        string Second;
+        private string First;
+        private string Second;
 
         public MyIndex(string first, string second)
         {
@@ -157,7 +168,7 @@ namespace ConsoleApp
         {
             get
             {
-                switch(index)
+                switch (index)
                 {
                     case "1":
                         return First;
@@ -171,9 +182,41 @@ namespace ConsoleApp
 
     }
 
+    internal class Feige
+    {
+        public static IEnumerable<int> Fei()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                yield return i;
+                Thread.Sleep(1000);
+                Console.WriteLine($"返回后的结果是:{i}");
+            }
+        }
 
+        public static IEnumerable<string> Y()
+        {
+            yield return "one";
+            yield return "tow";
+            yield return "three";
+        }
 
+        public static IEnumerable<int> Fib(int n)
+        {
+            int current = 1, next = 1;
+            int count = 0;
+            while (true)
+            {
+                count++;
+                yield return current;
+                next = current + (current = next);
+                if (count == n)
+                {
+                    yield break;
+                }
+            }
 
-
+        }
+    }
 
 }

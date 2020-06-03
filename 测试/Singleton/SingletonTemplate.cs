@@ -1,17 +1,7 @@
 ﻿using System;
 
-namespace Singleton
+namespace SingletonTemplate
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine(SingletonTest.Something);
-
-
-            Console.ReadKey();
-        }
-    }
     /// <summary>
     /// 测试实例化时成员初始化顺序
     /// </summary>

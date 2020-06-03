@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A39B5AEE-612D-497F-A41E-8815D16B6139}</ProjectGuid>
+    <ProjectGuid>{B637477A-8069-491E-9259-C9A47A64FB1C}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Singleton</RootNamespace>
-    <AssemblyName>Singleton</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RootNamespace>DesignPatternsTemplate</RootNamespace>
+    <AssemblyName>DesignPatternsTemplate</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -38,11 +38,32 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SingletonTemplate.cs" />
+    <Compile Include="创建类模式\AbstractFactoryPattern.cs" />
+    <Compile Include="创建类模式\BuilderPattern.cs" />
+    <Compile Include="创建类模式\FactoryMethodPattern.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="创建类模式\PrototypePattern.cs" />
+    <Compile Include="创建类模式\SingletonPattern.cs" />
+    <Compile Include="行为类模式\AdapterPattern.cs" />
+    <Compile Include="行为类模式\BridgePattern.cs" />
+    <Compile Include="行为类模式\CompositePattern.cs" />
+    <Compile Include="行为类模式\DecoratorPattern.cs" />
+    <Compile Include="行为类模式\FacadePattern.cs" />
+    <Compile Include="行为类模式\FlyweightPattern.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="结构类模式\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

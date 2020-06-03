@@ -24,6 +24,7 @@ namespace ObserverMode
                 }
                 ther.CurrentTem = float.Parse(input);
             }
+
             Console.ReadKey();
         }
     }
