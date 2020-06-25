@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.489
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "INotifyPropertyChangedTest", "INotifyPropertyChangedTest\INotifyPropertyChangedTest.csproj", "{7BF32632-E62B-484A-B22B-8022B430AE44}"
 EndProject
@@ -40,6 +40,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegularExpressions", "RegularExpressions\RegularExpressions.csproj", "{DD344D84-4482-4A71-A93C-1169E159872A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatternsTemplate", "DesignPatternsTemplate\DesignPatternsTemplate.csproj", "{B637477A-8069-491E-9259-C9A47A64FB1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "原生控件测试", "原生控件测试\原生控件测试.csproj", "{5E0AF390-1741-4829-BF0C-5A929EC614F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,10 @@ Global
 		{B637477A-8069-491E-9259-C9A47A64FB1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B637477A-8069-491E-9259-C9A47A64FB1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B637477A-8069-491E-9259-C9A47A64FB1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E0AF390-1741-4829-BF0C-5A929EC614F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E0AF390-1741-4829-BF0C-5A929EC614F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E0AF390-1741-4829-BF0C-5A929EC614F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E0AF390-1741-4829-BF0C-5A929EC614F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

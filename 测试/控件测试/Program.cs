@@ -33,7 +33,7 @@ namespace 控件测试
             //Application.Run(new ErrorHandlerForm());
 
 
-            Application.Run(new Form1());
+            Application.Run(new ErrorHandlerForm());
         }
 
         private static void Form1_UIThreadException(object sender, ThreadExceptionEventArgs t)
