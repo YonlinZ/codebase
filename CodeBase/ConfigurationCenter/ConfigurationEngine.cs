@@ -10,7 +10,7 @@ namespace ConfigurationCenter
     public class ConfigurationEngine
     {
         /// <summary>
-        /// 雨滴谱配置文件
+        /// 配置文件
         /// </summary>
         public static SomeEtt SomeEtt => SomeEtt.Instance;
         
