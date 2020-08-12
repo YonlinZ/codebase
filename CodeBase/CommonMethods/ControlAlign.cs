@@ -24,7 +24,7 @@ namespace CommonControls
         /// <typeparam name="T2"></typeparam>
         /// <param name="parentCtrl1">父控件</param>
         /// <param name="childCtrl2">子控件</param>
-        /// <param name="align">相对位置，待完善</param>
+        /// <param name="align">相对位置</param>
         public static void SetControlAlign<T1, T2>(T1 parentCtrl1, T2 childCtrl2, AlignType align = AlignType.MiddleCentre) where T1 : System.Windows.Forms.Control where T2 : System.Windows.Forms.Control
         {
             switch (align)
