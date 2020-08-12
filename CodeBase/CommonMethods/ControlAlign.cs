@@ -1,9 +1,8 @@
 ﻿using System.Drawing;
-using System.Windows.Forms;
 
 namespace CommonControls
 {
-    internal class ControlAlign
+    public class ControlAlign
     {
         public enum AlignType
         {
