@@ -1,5 +1,4 @@
-﻿using LogManager;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
@@ -18,7 +17,7 @@ namespace InstantMessagingModule
         /// <summary>
         /// MQ服务器地址，默认端口
         /// </summary>
-        private static readonly string hostName = DBManager.DBReader.GetTopLeft("LocalDB", "SELECT PARAM_VALUE FROM dbo.SYS_ENV_PARAM WHERE PARAM_CODE = 'MQ_IP'").ToString();
+        private static readonly string hostName = "";
         /// <summary>
         /// MQ服务登录名
         /// </summary>
@@ -70,13 +69,13 @@ namespace InstantMessagingModule
                         var conn = f.CreateConnection();
                         conn.ConnectionShutdown += (o, e) =>
                         {
-                            Logger.Info("MQ CONNECTION SHUTDOWN");
+                            //Logger.Info("MQ CONNECTION SHUTDOWN");
                         };
                         return conn;
                     }
                     catch (Exception e)
                     {
-                        Logger.Fatal(e.ToString());
+                        //Logger.Fatal(e.ToString());
                         return null;
                     }
                 });
@@ -133,7 +132,7 @@ namespace InstantMessagingModule
             }
             catch (Exception e)
             {
-                Logger.Fatal(e.ToString());
+                throw new Exception("MQ获取消息失败", e);
             }
         }
         /// <summary>
@@ -149,7 +148,7 @@ namespace InstantMessagingModule
             }
             catch (Exception ex)
             {
-                Logger.Fatal(ex.ToString());
+                throw new Exception("MQ处理消息失败", ex);
             }
         }
 
@@ -183,7 +182,7 @@ namespace InstantMessagingModule
             {
                 if (GetMqConnection == null)
                 {
-                    new Exception($"{nameof(SendMessageByMQ)}：未获取到MQ连接！");
+                    new Exception($"{nameof(SendMessageByMQ)}：未获取到 MQ 连接！");
                 }
                 var channel = GetMqConnection.CreateModel();
                 channel.ExchangeDeclare(ExchangeName, ExchangeType, true);
@@ -195,7 +194,7 @@ namespace InstantMessagingModule
             }
             catch (Exception e)
             {
-                Logger.Fatal(e.ToString());
+                throw new Exception("MQ 发送消息失败", e);
             }
         }
     }
