@@ -57,6 +57,7 @@
     <Compile Include="AType\MQBusinessType.cs" />
     <Compile Include="BType\ConnectionModel.cs" />
     <Compile Include="BType\MQClient.cs" />
+    <Compile Include="BType\MQManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AType\MessageQueueClient.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

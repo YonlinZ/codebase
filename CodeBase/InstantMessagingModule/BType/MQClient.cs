@@ -3,6 +3,7 @@ using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,9 @@ namespace InstantMessagingModule.BType
     /// <typeparam name="T"></typeparam>
     public class MQClient<T> where T : class
     {
-        private static ConcurrentDictionary<int, IConnection> _connectionCache = new ConcurrentDictionary<int, IConnection>();
+        private static Dictionary<int, IConnection> _connectionCache = MQManager.ConnCache;
+        private static Dictionary<int, List<IModel>> _channelCache = MQManager.ChannelCache;
+        private static int _connectionHash;
         #region 字段/属性
         /// <summary>
         /// 连接实体
@@ -45,8 +48,11 @@ namespace InstantMessagingModule.BType
         /// <summary>
         /// 队列名
         /// </summary>
-        private string queueName { get; set; } = "X." + Guid.NewGuid();
-
+        private string queueName { get; set; } = "X.HYT" + Guid.NewGuid();
+        /// <summary>
+        /// 连接名
+        /// </summary>
+        private string connName { get; set; } = "HYT";
         /// <summary>
         /// 重新获取连接时间间隔，单位mm
         /// </summary>
@@ -98,10 +104,13 @@ namespace InstantMessagingModule.BType
             {
                 try
                 {
-                    var hash = _connectionModel.GetHash();
-                    bool flag = _connectionCache.TryGetValue(hash, out var connection);
+                    MQManager.SemaphoreSlim.Wait();
+                    _connectionHash = _connectionModel.GetHash();
+                    bool flag = _connectionCache.TryGetValue(_connectionHash, out var connection);
+
                     if (flag)
                     {
+                        MQManager.SemaphoreSlim.Release();
                         return connection;
                     }
                     const ushort heartbeat = 60;
@@ -115,9 +124,10 @@ namespace InstantMessagingModule.BType
                         RequestedHeartbeat = heartbeat, //心跳超时时间
                         AutomaticRecoveryEnabled = true //自动重连
                     };
-                    var conn = f.CreateConnection();
+                    var conn = f.CreateConnection(connName);
                     conn.ConnectionShutdown += (o, e) => RemoveAllMessageProcess();
-                    _connectionCache.TryAdd(hash, conn);
+                    _connectionCache.Add(_connectionHash, conn);
+                    MQManager.SemaphoreSlim.Release();
                     return conn;
                 }
                 catch (Exception)
@@ -161,10 +171,16 @@ namespace InstantMessagingModule.BType
                         throw new Exception($"{nameof(BeginReceiveMessages)}未获取到MQ连接！");
                     }
                     var channel = GetMqConnection.CreateModel();
-                    //设置交换器的类型
+                    var flag = _channelCache.TryGetValue(_connectionHash, out var channelList);
+                    if (flag)
+                    {
+                        channelList.Add(channel);
+                    }
+                    _channelCache.Add(_connectionHash, new List<IModel>() { channel });
 
                     if (IsCreateExchange)
                     {
+                        //声明交换器并设置交换器的类型
                         channel.ExchangeDeclare(ExchangeName, ExchangeType, true);
                     }
                     channel.QueueDeclare(queueName, true, false, true, null);
@@ -248,6 +264,18 @@ namespace InstantMessagingModule.BType
                 throw new Exception("MQ 发送消息失败！", e);
             }
         }
+
+        /// <summary>
+        /// 关闭 MQ 连接
+        /// </summary>
+        //public static void CloseConnection()
+        //{
+        //    bool flag = _connectionCache.TryGetValue(_connectionHash, out var connection);
+        //    if (flag)
+        //    {
+        //        connection.Dispose();
+        //    }
+        //}
         #endregion
 
     }

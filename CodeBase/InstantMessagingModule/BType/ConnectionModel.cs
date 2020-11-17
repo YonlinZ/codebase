@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace InstantMessagingModule.BType
+﻿namespace InstantMessagingModule.BType
 {
     /// <summary>
     /// 连接实体
@@ -32,7 +26,7 @@ namespace InstantMessagingModule.BType
         /// </summary>
         public string VirtualHost { get; set; } = "/";
         /// <summary>
-        /// 获取hash
+        /// 获取Hash
         /// </summary>
         /// <returns></returns>
         public int GetHash()
