@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{17233A9A-4B27-4A1B-8773-A8C5AD18F1CF}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>InstantMessagingModule</RootNamespace>
-    <AssemblyName>InstantMessagingModule</AssemblyName>
+    <RootNamespace>MQ</RootNamespace>
+    <AssemblyName>MQ</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\InstantMessagingModule.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\MQ.xml</DocumentationFile>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
