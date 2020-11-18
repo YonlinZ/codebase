@@ -33,10 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSystemWatcher", "FileSy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationCenter", "ConfigurationCenter\ConfigurationCenter.csproj", "{E43BDDF0-11E5-4657-B428-A3ECD85133B3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{14BBA51D-5BC2-4354-951A-E453076C7836}"
-	ProjectSection(SolutionItems) = preProject
-		MQ\MQ.csproj = MQ\MQ.csproj
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQ", "MQ\MQ.csproj", "{17233A9A-4B27-4A1B-8773-A8C5AD18F1CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -96,6 +93,10 @@ Global
 		{E43BDDF0-11E5-4657-B428-A3ECD85133B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E43BDDF0-11E5-4657-B428-A3ECD85133B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E43BDDF0-11E5-4657-B428-A3ECD85133B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17233A9A-4B27-4A1B-8773-A8C5AD18F1CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17233A9A-4B27-4A1B-8773-A8C5AD18F1CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17233A9A-4B27-4A1B-8773-A8C5AD18F1CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17233A9A-4B27-4A1B-8773-A8C5AD18F1CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
