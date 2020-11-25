@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationCenter", "Conf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQ", "MQ\MQ.csproj", "{17233A9A-4B27-4A1B-8773-A8C5AD18F1CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskEx", "TaskEx\TaskEx.csproj", "{F9E30FBB-779D-45FA-9F8D-CCD6F40BF013}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,10 @@ Global
 		{17233A9A-4B27-4A1B-8773-A8C5AD18F1CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17233A9A-4B27-4A1B-8773-A8C5AD18F1CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17233A9A-4B27-4A1B-8773-A8C5AD18F1CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9E30FBB-779D-45FA-9F8D-CCD6F40BF013}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9E30FBB-779D-45FA-9F8D-CCD6F40BF013}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9E30FBB-779D-45FA-9F8D-CCD6F40BF013}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9E30FBB-779D-45FA-9F8D-CCD6F40BF013}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
