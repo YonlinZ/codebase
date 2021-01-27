@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatternsTemplate", "D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "原生控件测试", "原生控件测试\原生控件测试.csproj", "{5E0AF390-1741-4829-BF0C-5A929EC614F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighPrecisionTimer", "HighPrecisionTimer\HighPrecisionTimer.csproj", "{59D035C7-B1AC-4AC2-A1D8-800D2AFDDAA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{5E0AF390-1741-4829-BF0C-5A929EC614F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E0AF390-1741-4829-BF0C-5A929EC614F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E0AF390-1741-4829-BF0C-5A929EC614F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59D035C7-B1AC-4AC2-A1D8-800D2AFDDAA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59D035C7-B1AC-4AC2-A1D8-800D2AFDDAA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59D035C7-B1AC-4AC2-A1D8-800D2AFDDAA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59D035C7-B1AC-4AC2-A1D8-800D2AFDDAA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
