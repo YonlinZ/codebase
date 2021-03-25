@@ -10,12 +10,12 @@ namespace TaskEx
     {
         static void Main(string[] args)
         {
-            var result = TaskExtension.TimeoutCancelTask(F);
+            //var result = TaskExtension.TimeoutCancel(F);
 
 
-            Console.WriteLine(result.Result);
+            //Console.WriteLine(result.Result);
 
-            Console.ReadLine();
+            //Console.ReadLine();
 
         }
 

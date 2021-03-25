@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -93,6 +94,60 @@ namespace CommonMethods
         public static string GetMD5(this string input)
         {
             return BitConverter.ToString(MD5.Create().ComputeHash(Encoding.ASCII.GetBytes(input))).Replace("-", "");
+        }
+
+        /// <summary>
+        /// 字符串转 int?
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static int? ToIntNull(this string str)
+        {
+            if (string.IsNullOrWhiteSpace(str)) return null;
+            if (int.TryParse(str, out var v)) return v;
+            return null;
+        }
+        /// <summary>
+        /// 字符串转 float?
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static float? ToFloatNull(this string str)
+        {
+            if (string.IsNullOrWhiteSpace(str)) return null;
+            if (float.TryParse(str, out var v)) return v;
+            return null;
+        }
+        /// <summary>
+        /// 字符串转 double?
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static double? ToDoubleNull(this string str)
+        {
+            if (string.IsNullOrWhiteSpace(str)) return null;
+            if (double.TryParse(str, out var v)) return v;
+            return null;
+        }
+
+        /// <summary>
+        /// 对Convert.ChangeType 进行补充，Convert.ChangeType无法转成Nullable类型值
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="conversionType"></param>
+        /// <returns></returns>
+        public static object ChangeType(this object value, Type conversionType)
+        {
+            if (conversionType.IsGenericType && conversionType.GetGenericTypeDefinition().Equals(typeof(Nullable<>)))
+            {
+                if (value == null || value.ToString() == "")
+                {
+                    return null;
+                }
+                NullableConverter nullableConverter = new NullableConverter(conversionType);
+                conversionType = nullableConverter.UnderlyingType;
+            }
+            return Convert.ChangeType(value, conversionType);
         }
     }
 }
