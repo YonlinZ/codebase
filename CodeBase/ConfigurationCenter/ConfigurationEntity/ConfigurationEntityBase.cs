@@ -36,16 +36,22 @@ namespace ConfigurationCenter.ConfigurationEntity
                 }
 
                 string xml = File.ReadAllText(ConfigPath);
-                XmlSerializer xmlSer = new XmlSerializer(typeof(T));
+                XmlSerializer xmlSer = XmlSerializer.FromTypes(new[] { typeof(T) })[0];
                 using (StringReader xmlReader = new StringReader(xml))
                 {
-                    Instance = (T)xmlSer.Deserialize(xmlReader);
+                    var newInstance = (T)xmlSer.Deserialize(xmlReader);
+                    var type = Instance.GetType();
+                    foreach (var propertyInfo in type.GetProperties())
+                    {
+                        propertyInfo.SetValue(Instance, propertyInfo.GetValue(newInstance));
+                    }
                     return true;
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("加载配置文件异常", ex);
+                return false;
+                //throw new Exception("加载配置文件异常", ex);
             }
         }
         /// <summary>
@@ -75,6 +81,20 @@ namespace ConfigurationCenter.ConfigurationEntity
             {
                 throw new Exception("保存xml异常", ex);
             }
+        }
+
+        /// <summary>
+        /// 设置实体
+        /// </summary>
+        /// <param name="newInstance"></param>
+        public virtual void SetInstance(T newInstance)
+        {
+            var type = Instance.GetType();
+            foreach (var propertyInfo in type.GetProperties())
+            {
+                propertyInfo.SetValue(Instance, propertyInfo.GetValue(newInstance));
+            }
+            SaveConfig();
         }
     }
 }
