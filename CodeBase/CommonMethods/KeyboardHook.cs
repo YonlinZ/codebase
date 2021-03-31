@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using System.Reflection;
-using Microsoft.Win32; //写入注册表时要用到
 
 namespace CommonMethods
 {
