@@ -6,8 +6,10 @@ using System.Runtime.InteropServices;
 using System.Drawing;
 
 
-namespace CsHook1 {
-    class CsHook {
+namespace CsHook1
+{
+    class CsHook
+    {
         //拖管对象
         public delegate int HookProc(int nCode, IntPtr wParam, IntPtr lParam);
 
@@ -21,7 +23,8 @@ namespace CsHook1 {
         public static extern int CallNextHookEx(IntPtr hookHandle, int nCode, IntPtr wParam, IntPtr lParam);
 
         [StructLayout(LayoutKind.Sequential)]
-        public struct MSLLHOOKSTRUCT {
+        public struct MSLLHOOKSTRUCT
+        {
             public Point Point;
             public int MouseData;
             public int Flags;
@@ -29,7 +32,8 @@ namespace CsHook1 {
             public int ExtraInfo;
         }
 
-        public enum HookTypes : int {
+        public enum HookTypes : int
+        {
             WH_JOURNALRECORD = 0,
             WH_JOURNALPLAYBACK = 1,
             WH_KEYBOARD = 2,
@@ -49,14 +53,14 @@ namespace CsHook1 {
 
 
 
-            [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, SetLastError = true)]
-            public static extern int SetWindowsHookEx(int idHook,HookProc lpfn,IntPtr hMod,int dwThreadId);
+        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, SetLastError = true)]
+        public static extern int SetWindowsHookEx(int idHook, HookProc lpfn, IntPtr hMod, int dwThreadId);
 
-            [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, SetLastError = true)]
-            public static extern int UnhookWindowsHookEx(IntPtr idHook);
+        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall, SetLastError = true)]
+        public static extern int UnhookWindowsHookEx(IntPtr idHook);
 
-            [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-            public static extern int CallNextHookEx(int idHook,int nCode,int wParam,IntPtr lParam);
-        }
+        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+        public static extern int CallNextHookEx(int idHook, int nCode, int wParam, IntPtr lParam);
     }
 }
+
