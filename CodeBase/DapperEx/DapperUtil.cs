@@ -5,7 +5,7 @@ using System.Data;
 
 namespace DapperEx
 {
-    public static class DapperEx
+    public static class DapperUtil
     {
         /// <summary>
         /// 根据查询字符串获取DataTable

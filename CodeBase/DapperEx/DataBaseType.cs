@@ -19,7 +19,7 @@ namespace DapperEx
         /// Oracle数据库
         /// </summary>
         ORACLE,
-
+        SQLITE,
         OTHER,
     }
 }

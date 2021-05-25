@@ -86,6 +86,7 @@ namespace CommonMethods
 
         protected override void WndProc(ref Message m)
         {
+            Console.WriteLine(m.Msg);
             switch (m.Msg)
             {
                 case 0x0084:

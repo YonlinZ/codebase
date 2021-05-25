@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace DapperEx
 {
@@ -26,6 +27,8 @@ namespace DapperEx
                         return new MySqlConnection(connectionString);
                     case DataBaseType.ORACLE:
                         throw new NotImplementedException(type.ToString());
+                    case DataBaseType.SQLITE:
+                        return new SQLiteConnection(connectionString);
                     default:
                         throw new NotImplementedException(type.ToString());
                 }

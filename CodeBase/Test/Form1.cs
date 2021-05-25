@@ -45,7 +45,7 @@ namespace Test
             //var instance = DapperExReader.GetInstances<monitoring_rx>("MySql", sql);
             //var instance = DapperExReader.GetInstance("MySql", sql);
             //var instance = DapperExReader.GetInstance<monitoring_rx>(DataBaseType.MYSQL, conn, "0d3925fb-ae82-4c96-8f57-c131239a9564", "monitoring_rx_3301_201912");
-            var scalar = DapperEx.DapperEx.GetScalar<int>(DataBaseType.MYSQL, conn, "select count(*) from monitoring_rx_3301_201911");
+            var scalar = DapperUtil.GetScalar<int>(DataBaseType.MYSQL, conn, "select count(*) from monitoring_rx_3301_201911");
             //dgv.DataSource = instance;
             Console.WriteLine(scalar);
         }
@@ -56,7 +56,7 @@ namespace Test
             var sql = "select * from monitoring_rx_3301_201911";
             //var table = DapperExReader.GetTable(DataBaseType.MSSQL, conn, sql);
             //var table = DapperExReader.GetTable("MSSQL", sql);
-            var instance = DapperEx.DapperEx.GetScalar<string>(DataBaseType.MSSQL, conn, "select top 1 HIN_FACILITY_IDENT,* from monitoring_rx_3301_201911");
+            var instance = DapperUtil.GetScalar<string>(DataBaseType.MSSQL, conn, "select top 1 HIN_FACILITY_IDENT,* from monitoring_rx_3301_201911");
             Console.WriteLine(instance);
         }
 
@@ -75,6 +75,13 @@ namespace Test
                 trans.RollbackTransaction();
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            var conn = @"Data Source = C:\Users\AXB\Desktop\202009.db;Version = 3;";
+            var sql = "select * from SysData limit 100";
+            var table = DapperUtil.GetTable(DataBaseType.SQLITE, conn, sql);
         }
     }
 }
