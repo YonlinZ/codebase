@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
 using System.Security.Permissions;
 
@@ -25,7 +26,7 @@ public class Watcher
         // Create a new FileSystemWatcher and set its properties.
         using (FileSystemWatcher watcher = new FileSystemWatcher())
         {
-            watcher.Path = @"E:\WorkPlace\Git\codebase\CodeBase\FileSystemWatcher\bin\Debug";
+            watcher.Path = ConfigurationManager.AppSettings["WatchFilePath"];
 
             // Watch for changes in LastAccess and LastWrite times, and
             // the renaming of files or directories.
@@ -35,7 +36,7 @@ public class Watcher
                                  | NotifyFilters.DirectoryName;
 
             // Only watch text files.
-            watcher.Filter = "*.txt";
+            watcher.Filter = "*.xml";
 
             // Add event handlers.
             watcher.Changed += OnChanged;
