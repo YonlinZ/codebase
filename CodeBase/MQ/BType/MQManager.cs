@@ -16,11 +16,9 @@ namespace InstantMessagingModule.BType
         /// </summary>
         public static Dictionary<int, IConnection> ConnCache { get; } = new Dictionary<int, IConnection>();
         /// <summary>
-        /// MQ 信道缓存
-        /// key: mq连接的Hash
-        /// value：信道列表，一个mq连接多个信道
+        /// mq client 缓存
         /// </summary>
-        public static Dictionary<int, List<IModel>> ChannelCache { get; } = new Dictionary<int, List<IModel>>();
+        public static List<MQClientBase> ClientCache { get; } = new List<MQClientBase>();
         /// <summary>
         /// 线程控制信号量，同一时间只允许一个线程访问
         /// </summary>
@@ -31,14 +29,27 @@ namespace InstantMessagingModule.BType
         /// </summary>
         public static void CloseAllConnection()
         {
-            SemaphoreSlim.Wait();
-            foreach (var conn in ConnCache.Values)
+            try
             {
-                conn.Dispose();
+                var count = SemaphoreSlim.CurrentCount;
+                if (count > 0)
+                {
+                    SemaphoreSlim.Release(count);
+                }
+                SemaphoreSlim.WaitAsync();
+                foreach (var conn in ConnCache.Values)
+                {
+                    if (conn.IsOpen)
+                    {
+                        conn.Dispose();
+                    }
+                }
+                ConnCache.Clear();
             }
-            ConnCache.Clear();
-            ChannelCache.Clear();
-            SemaphoreSlim.Release();
+            finally
+            {
+                SemaphoreSlim.Release();
+            }
         }
     }
 }
