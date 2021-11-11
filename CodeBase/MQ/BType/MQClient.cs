@@ -348,7 +348,10 @@ namespace InstantMessagingModule.BType
                 if (MqConnection == null)
                 {
                     InitConnection();
-                    throw new Exception($"{nameof(SendMessageByMQ)}：未获取到 MQ 连接！");
+                    if (MqConnection == null)
+                    {
+                        throw new Exception($"{nameof(SendMessageByMQ)}：未获取到 MQ 连接！");
+                    }
                 }
                 if (channel == null)
                 {
