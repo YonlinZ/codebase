@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncAwaitConsole", "并发
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncAwaitWinform", "并发编程测试\AsyncAwaitWinform\AsyncAwaitWinform.csproj", "{92C1B79C-01A8-4205-8DFA-F600253CB53B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataflowTest", "DataflowTest\DataflowTest.csproj", "{FC857BF4-C6B3-4EF4-A50A-09B6523A0DA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -137,6 +139,10 @@ Global
 		{92C1B79C-01A8-4205-8DFA-F600253CB53B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92C1B79C-01A8-4205-8DFA-F600253CB53B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92C1B79C-01A8-4205-8DFA-F600253CB53B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC857BF4-C6B3-4EF4-A50A-09B6523A0DA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC857BF4-C6B3-4EF4-A50A-09B6523A0DA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC857BF4-C6B3-4EF4-A50A-09B6523A0DA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC857BF4-C6B3-4EF4-A50A-09B6523A0DA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
