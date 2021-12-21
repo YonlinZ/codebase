@@ -79,8 +79,9 @@ namespace Test
 
         private void button6_Click(object sender, EventArgs e)
         {
-            var conn = @"Data Source = C:\Users\AXB\Desktop\202009.db;Version = 3;";
-            var sql = "select * from SysData limit 100";
+            //var conn = @"Data Source = C:\Users\AXB\Desktop\202009.db;Version = 3;";
+            var conn = @"Data Source = db\MarketData.db;Version = 3;";
+            var sql = "SELECT sql FROM sqlite_master WHERE type='table' and tbl_name = 'Kline'  ";
             var table = DapperUtil.GetTable(DataBaseType.SQLITE, conn, sql);
         }
     }

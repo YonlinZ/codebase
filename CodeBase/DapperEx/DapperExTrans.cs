@@ -13,7 +13,10 @@ namespace DapperEx
         {
             conn = ConnectionFactory.GetConnection(dataBaseName);
         }
-
+        public DapperExTrans(IDbConnection conn)
+        {
+            this.conn = conn;
+        }
         /// <summary>
         /// 根据数据库名开启事务
         /// </summary>
