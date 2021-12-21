@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 
 namespace ConsoleApp
@@ -37,6 +38,17 @@ namespace ConsoleApp
             //{
             //    Console.WriteLine($"{++count2} 返回的结果是：{i}");
             //}
+            int[] arr = new int[0];
+            int[] arr1 = new[] { 1 };
+            int[] arr2 = new[] { 1, 2 };
+            List<int> list = null;
+            Console.WriteLine(arr.ToList().HasOne());
+            Console.WriteLine(arr1.ToList().HasOne());
+            Console.WriteLine(arr2.ToList().HasOne());
+            Console.WriteLine(list.HasOne());
+
+
+
             Console.ReadKey();
         }
     }

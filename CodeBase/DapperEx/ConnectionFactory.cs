@@ -76,6 +76,9 @@ namespace DapperEx
                     case "SYSTEM.DATA.ORACLECLIENT":
                         type = DataBaseType.ORACLE;
                         break;
+                    case "SYSTEM.DATA.SQLITE":
+                        type = DataBaseType.SQLITE;
+                        break;
                     default:
                         break;
                 }
