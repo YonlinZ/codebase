@@ -11,7 +11,7 @@ namespace WindowsFormsApp1
         /// 缓存需要刷新的tab
         /// 第一个tab是关闭的tab，第二个是要刷新的tab
         /// </summary>
-        private static Dictionary<UltraTab, UltraTab> refreshTabCache = new Dictionary<UltraTab, UltraTab>();
+        private static Dictionary<TabControl, TabControl> refreshTabCache = new Dictionary<TabControl, TabControl>();
         public FormTabBase()
         {
             InitializeComponent();
@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            var frm = new FormTab1();
+            var frm = new Form();
             frm.TopLevel = false;
             frm.WindowState = FormWindowState.Maximized;
             ultraTabPageControl1.Controls.Add(frm);

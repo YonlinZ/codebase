@@ -1,4 +1,6 @@
-﻿namespace WindowsFormsApp1
+﻿using System.Windows.Forms;
+
+namespace WindowsFormsApp1
 {
     partial class FormTabBase
     {
@@ -82,9 +84,9 @@
 
         #endregion
 
-        private Infragistics.Win.UltraWinTabControl.UltraTabControl ultraTabControl1;
+        private TabControl ultraTabControl1;
         private Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage ultraTabSharedControlsPage1;
-        private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl1;
+        private TabPageControl ultraTabPageControl1;
     }
 }
 
