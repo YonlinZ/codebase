@@ -149,5 +149,37 @@ namespace CommonMethods
             }
             return Convert.ChangeType(value, conversionType);
         }
+
+        /// <summary>
+        /// 示例：var result = list.OrderByDescending(x=>x.Score).SelectRank(x => x.Score, (x, r) => new { x.Name,x.Score, Rank = r });
+        /// </summary>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TValue"></typeparam>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="valueSelector"></param>
+        /// <param name="selector"></param>
+        /// <returns></returns>
+        public static IEnumerable<TResult> SelectRank<TSource, TValue, TResult>(this IEnumerable<TSource> source,
+                                         Func<TSource, TValue> valueSelector,
+                                         Func<TSource, int, TResult> selector)
+            where TValue : struct
+        {
+            TValue? previousValue = default(TValue?);
+            var count = 0;
+            var rank = 0;
+            foreach (var item in source)
+            {
+                count++;
+                var value = valueSelector(item);
+                if (!value.Equals(previousValue))
+                {
+                    rank = count;
+                    previousValue = value;
+                }
+                yield return selector(item, rank);
+            }
+        }
+
     }
 }
